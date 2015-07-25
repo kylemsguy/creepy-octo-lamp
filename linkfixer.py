@@ -8,7 +8,7 @@ class LinkHTMLParser(HTMLParser):
 		self.tags_misc = {"body":("background"), "form":("action"), "object":("data"), 
 							"blockquote":("cite")}
 	def handle_starttag(self, tag, attrs):
-		if(tag in self.tags_src):
+		if tag in self.tags_src:
 			print("Found tag", tag, "looking for attribute src")
 			for attr, value in attrs:
 				if(attr.lower() == "src"):
