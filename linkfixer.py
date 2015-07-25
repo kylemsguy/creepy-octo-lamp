@@ -14,4 +14,16 @@ class LinkHTMLParser(HTMLParser):
 				if(attr.lower() == "src"):
 					# analyze the path given and rename accordingly
 					break
-		elif
+		elif tag in self.tags_href:
+			print("Found tag", tag, "looking for attribute href")
+			for attr, value in attrs:
+				if(attr.lower() == "href"):
+					# analyze the path given and rename accordingly
+					break
+		elif tag in self.tags_misc.keys():
+			wanted_attr = self.tags_misc[tag]
+			print("Found tag", tag, "looking for attribute", wanted_attr)
+			for attr, value in attrs:
+				if(attr.lower() == wanted_attr.lower()):
+					# analyze the path given adn rename accordingly
+					break
